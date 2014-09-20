@@ -22,7 +22,7 @@
 		849DFCC319CE090600B8C5C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849DFCA219CE090400B8C5C1 /* UIKit.framework */; };
 		849DFCCB19CE090600B8C5C1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 849DFCC919CE090600B8C5C1 /* InfoPlist.strings */; };
 		849DFCCD19CE090600B8C5C1 /* FOOBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DFCCC19CE090600B8C5C1 /* FOOBTests.m */; };
-		849DFCD819CE174E00B8C5C1 /* FOOBAddAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DFCD719CE174E00B8C5C1 /* FOOBAddAlarm.m */; };
+		849DFCD819CE174E00B8C5C1 /* FOOBAddDeadline.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DFCD719CE174E00B8C5C1 /* FOOBAddDeadline.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,8 @@
 		849DFCC819CE090600B8C5C1 /* FOOBTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FOOBTests-Info.plist"; sourceTree = "<group>"; };
 		849DFCCA19CE090600B8C5C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		849DFCCC19CE090600B8C5C1 /* FOOBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOOBTests.m; sourceTree = "<group>"; };
-		849DFCD619CE174E00B8C5C1 /* FOOBAddAlarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOOBAddAlarm.h; sourceTree = "<group>"; };
-		849DFCD719CE174E00B8C5C1 /* FOOBAddAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOOBAddAlarm.m; sourceTree = "<group>"; };
+		849DFCD619CE174E00B8C5C1 /* FOOBAddDeadline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOOBAddDeadline.h; sourceTree = "<group>"; };
+		849DFCD719CE174E00B8C5C1 /* FOOBAddDeadline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOOBAddDeadline.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +121,8 @@
 				849DFCAD19CE090500B8C5C1 /* FOOBAppDelegate.h */,
 				849DFCAE19CE090500B8C5C1 /* FOOBAppDelegate.m */,
 				849DFCB019CE090500B8C5C1 /* Main.storyboard */,
-				849DFCD619CE174E00B8C5C1 /* FOOBAddAlarm.h */,
-				849DFCD719CE174E00B8C5C1 /* FOOBAddAlarm.m */,
+				849DFCD619CE174E00B8C5C1 /* FOOBAddDeadline.h */,
+				849DFCD719CE174E00B8C5C1 /* FOOBAddDeadline.m */,
 				849DFCB319CE090500B8C5C1 /* FOOBMasterViewController.h */,
 				849DFCB419CE090500B8C5C1 /* FOOBMasterViewController.m */,
 				849DFCB619CE090500B8C5C1 /* FOOBDetailViewController.h */,
@@ -262,7 +262,7 @@
 			files = (
 				849DFCAF19CE090500B8C5C1 /* FOOBAppDelegate.m in Sources */,
 				849DFCB819CE090500B8C5C1 /* FOOBDetailViewController.m in Sources */,
-				849DFCD819CE174E00B8C5C1 /* FOOBAddAlarm.m in Sources */,
+				849DFCD819CE174E00B8C5C1 /* FOOBAddDeadline.m in Sources */,
 				849DFCAB19CE090500B8C5C1 /* main.m in Sources */,
 				849DFCB519CE090500B8C5C1 /* FOOBMasterViewController.m in Sources */,
 			);
@@ -469,6 +469,7 @@
 				849DFCD219CE090600B8C5C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		849DFCD319CE090600B8C5C1 /* Build configuration list for PBXNativeTarget "FOOBTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +478,7 @@
 				849DFCD519CE090600B8C5C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

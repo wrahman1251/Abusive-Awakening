@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FOOBAddAlarm : UITableViewController
+@interface FOOBAddDeadline : UITableViewController
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *done;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancel;
 @property (weak, nonatomic) IBOutlet UIDatePicker *deadlinePicker;
