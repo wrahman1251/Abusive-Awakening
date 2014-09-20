@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>952F7033-05FB-47C8-A29E-551B86A22E1D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FOOB</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>091E50B65092A42DA7772577A78A3B7E6FAE57FC</key>
+		<string>https://github.com/wrahman1251/Abusive-Awakening.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FOOB.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>091E50B65092A42DA7772577A78A3B7E6FAE57FC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/wrahman1251/Abusive-Awakening.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>091E50B65092A42DA7772577A78A3B7E6FAE57FC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>091E50B65092A42DA7772577A78A3B7E6FAE57FC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Abusive-Awakening</string>
+		</dict>
+	</array>
+</dict>
+</plist>
