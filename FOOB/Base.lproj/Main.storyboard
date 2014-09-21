@@ -13,7 +13,8 @@
                         <color key="backgroundColor" red="0.97376669337606847" green="0.96832665598290601" blue="0.97920673076923082" alpha="0.0" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.1529411765" green="0.68235294120000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="0.0"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="0.0"/>
+                            <color key="textColor" red="0.056191243590000002" green="0.4073768029" blue="0.2927418946" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="textShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                         </textAttributes>
@@ -79,7 +80,7 @@
         <scene sceneID="AwJ-1u-Aof">
             <objects>
                 <tableViewController id="S7L-TX-b6s" customClass="FOOBAddDeadline" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="162" sectionHeaderHeight="22" sectionFooterHeight="22" id="fLj-cK-sQs">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" dataMode="static" style="plain" separatorStyle="default" rowHeight="162" sectionHeaderHeight="22" sectionFooterHeight="22" id="fLj-cK-sQs">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -213,13 +214,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </tableView>
                     <navigationItem key="navigationItem" title="+" id="mxb-3f-LKr">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="jTU-mb-aRS">
-                            <color key="tintColor" red="0.056191243590000002" green="0.4073768029" blue="0.2927418946" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.1529411765" green="0.68235294120000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="exitModal:" destination="S7L-TX-b6s" id="TeL-rf-EbA"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Get FOOB'd" id="yg0-4x-whJ">
-                            <color key="tintColor" red="0.056191243590000002" green="0.4073768029" blue="0.2927418946" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.1529411765" green="0.68235294120000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="getFOOB:" destination="S7L-TX-b6s" id="Jyu-bA-DkP"/>
                             </connections>
@@ -282,6 +283,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="0.0"/>
                             <color key="textColor" red="0.056191243590000002" green="0.4073768029" blue="0.2927418946" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
