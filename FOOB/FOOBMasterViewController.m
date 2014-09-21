@@ -33,9 +33,9 @@
     
     NSDate *now = [NSDate date];
     [FOOBParse addDeadlineWithTitle:@"AAAAAA" date:[now dateByAddingTimeInterval:10] phoneNumber:@"+12268084985"];
-    [FOOBParse addDeadlineWithTitle:@"BBBBBB" date:[now dateByAddingTimeInterval:60] phoneNumber:@"+12268084985"];
-    [FOOBParse addDeadlineWithTitle:@"CCCCCC" date:[now dateByAddingTimeInterval:80] phoneNumber:@"+12268084985"];
-    [FOOBParse addDeadlineWithTitle:@"DDDDDD" date:[now dateByAddingTimeInterval:100] phoneNumber:@"+12268084985"];
+    [FOOBParse addDeadlineWithTitle:@"BBBBBB" date:[now dateByAddingTimeInterval:20] phoneNumber:@"+15195034679"];
+    [FOOBParse addDeadlineWithTitle:@"CCCCCC" date:[now dateByAddingTimeInterval:30] phoneNumber:@"+16476067399"];
+
 }
 
 - (void)didReceiveMemoryWarning

@@ -9,30 +9,44 @@
 #import "FOOBAddDeadline.h"
 #import <Parse/PFUser.h>
 
-@interface FOOBAddDeadline ()
+@interface FOOBAddDeadline () {
+    NSDateFormatter *dateFormatter;
+}
 
 @end
 
 @implementation FOOBAddDeadline
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (IBAction)dateChanged:(id)sender {
+    self.dateLabel.text = [dateFormatter stringFromDate:self.deadlinePicker.date];
+}
+- (IBAction)getFOOB:(id)sender {
+    //send to server
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.dateLabel.text = [dateFormatter stringFromDate:self.deadlinePicker.date];
+    self.deadlineName.text = @"";
+    self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)];
+    
+    [self.view addGestureRecognizer:tapGesture];
+}
+
+-(void)hideKeyBoard {
+    [self.deadlineName resignFirstResponder];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning
