@@ -8,7 +8,8 @@
 
 #import "FOOBMasterViewController.h"
 #import "FOOBDetailViewController.h"
-#import "FOOBParse.h"
+#import <Parse/PFUser.h>
+#import <Parse/Parse.h>
 
 @interface FOOBMasterViewController () {
     NSMutableArray *_objects;
@@ -28,14 +29,24 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
+    PFQuery *query = [PFQuery queryWithClassName:@"Deadline"];
+    PFUser *user = [PFUser currentUser];
+    [query whereKey:@"username" equalTo:user.username];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d scores.", objects.count);
+            // Do something with the found objects
+            _objects = [objects mutableCopy];
+            [self.tableView reloadData];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
    /* UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;*/
-    
-    NSDate *now = [NSDate date];
-    [FOOBParse addDeadlineWithTitle:@"AAAAAA" date:[now dateByAddingTimeInterval:10] phoneNumber:@"+12268084985"];
-    [FOOBParse addDeadlineWithTitle:@"BBBBBB" date:[now dateByAddingTimeInterval:20] phoneNumber:@"+15195034679"];
-    [FOOBParse addDeadlineWithTitle:@"CCCCCC" date:[now dateByAddingTimeInterval:30] phoneNumber:@"+16476067399"];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,10 +57,7 @@
 
 - (void)insertNewObject:(id)sender
 {
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
-    }
-    [_objects insertObject:[NSDate date] atIndex:0];
+    //[_objects insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -63,15 +71,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return [_objects count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    PFObject *deadline = _objects[indexPath.row];
+    cell.textLabel.text = deadline[@"title"];
+    NSString *dateString = deadline[@"scheduledDate"];
+    NSDateFormatter *f = [[NSDateFormatter alloc] init];
+    [f setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+    NSDate *date = [f dateFromString:dateString];
+    
+    f.dateStyle = NSDateFormatterShortStyle;
+    f.timeStyle = NSDateFormatterShortStyle;
+    
+    cell.detailTextLabel.text = [f stringFromDate:date];
     return cell;
 }
 

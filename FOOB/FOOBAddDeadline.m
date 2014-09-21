@@ -8,6 +8,7 @@
 
 #import "FOOBAddDeadline.h"
 #import <Parse/PFUser.h>
+#import "FOOBParse.h"
 
 @interface FOOBAddDeadline () {
     NSDateFormatter *dateFormatter;
@@ -20,8 +21,18 @@
 - (IBAction)dateChanged:(id)sender {
     self.dateLabel.text = [dateFormatter stringFromDate:self.deadlinePicker.date];
 }
+
 - (IBAction)getFOOB:(id)sender {
     //send to server
+    
+    [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:@"+12268084985"];
+    
+    /*
+     NSDate *now = [NSDate date];
+    [FOOBParse addDeadlineWithTitle:@"BBBBBB" date:[now dateByAddingTimeInterval:20] phoneNumber:@"+15195034679"];
+    [FOOBParse addDeadlineWithTitle:@"CCCCCC" date:[now dateByAddingTimeInterval:30] phoneNumber:@"+16476067399"];
+    */
+    
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
