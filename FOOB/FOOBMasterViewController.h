@@ -10,4 +10,6 @@
 
 @interface FOOBMasterViewController : UITableViewController
 
+@property (nonatomic) NSMutableArray *objects;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "FOOBAddDeadline.h"
+#import "FOOBMasterViewController.h"
 #import <Parse/PFUser.h>
 #import "FOOBParse.h"
 
@@ -37,9 +38,14 @@
 - (IBAction)getFOOB:(id)sender {
     //send to server
     
-    [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:@"+12268084985"];
-    [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:@"+15195034679"];
-    [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:@"+16476067399"];
+    PFObject *obj1 = [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:@"+12268084985"];
+    PFObject *obj2 = [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:@"+15195034679"];
+    PFObject *obj3 = [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:@"+16476067399"];
+    
+    UINavigationController *nav = (UINavigationController *)self.presentingViewController;
+    FOOBMasterViewController *vc = (FOOBMasterViewController *)[nav.viewControllers firstObject];
+    [[vc objects] addObjectsFromArray:@[obj1,obj2,obj3]];
+    [vc.tableView reloadData];
     
     /*
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

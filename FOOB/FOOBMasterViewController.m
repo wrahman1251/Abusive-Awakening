@@ -11,11 +11,6 @@
 #import <Parse/PFUser.h>
 #import <Parse/Parse.h>
 
-@interface FOOBMasterViewController () {
-    NSMutableArray *_objects;
-}
-@end
-
 @implementation FOOBMasterViewController
 
 - (void)awakeFromNib
@@ -28,14 +23,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    
-   /* UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;*/
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Deadline"];
     PFUser *user = [PFUser currentUser];
@@ -54,7 +41,9 @@
             }
         }];
     }
-
+    
+   /* UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    self.navigationItem.rightBarButtonItem = addButton;*/
 }
 
 - (void)didReceiveMemoryWarning
