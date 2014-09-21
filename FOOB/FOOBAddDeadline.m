@@ -38,13 +38,19 @@
 - (IBAction)getFOOB:(id)sender {
     //send to server
     
-    NSString *number = [@"+" stringByAppendingString:self.phoneNumber.text];
-    
-    PFObject *obj = [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:number];
+    NSArray *numbers = [self.phoneNumber.text componentsSeparatedByString:@","];
     
     UINavigationController *nav = (UINavigationController *)self.presentingViewController;
     FOOBMasterViewController *vc = (FOOBMasterViewController *)[nav.viewControllers firstObject];
-    [[vc objects] addObject:obj];
+    NSDate *date = [[NSDate date] dateByAddingTimeInterval:30];
+    
+    for (NSString *number in numbers) {
+        NSString *moddedNumber = [@"+" stringByAppendingString:number];
+        NSLog(@"%@", moddedNumber);
+        PFObject *obj = [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:date phoneNumber:moddedNumber];
+        [[vc objects] addObject:obj];
+    }
+    
     [vc.tableView reloadData];
     
     /*
@@ -53,6 +59,7 @@
     [defaults setObject:coords forKey:object.objectId];
     [defaults synchronize];
     */
+    
     /*
      NSDate *now = [NSDate date];
     [FOOBParse addDeadlineWithTitle:@"BBBBBB" date:[now dateByAddingTimeInterval:20] phoneNumber:@"+15195034679"];
@@ -65,6 +72,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     NSDateFormatter *f = [[NSDateFormatter alloc] init];
     [f setDateStyle:NSDateFormatterMediumStyle];
     [f setTimeStyle:NSDateFormatterShortStyle];

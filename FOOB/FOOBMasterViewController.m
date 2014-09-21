@@ -33,7 +33,7 @@
                 // The find succeeded.
                 //NSLog(@"Successfully retrieved %d scores.", objects.count);
                 // Do something with the found objects
-                _objects = [objects mutableCopy];
+                self.objects = [objects mutableCopy];
                 [self.tableView reloadData];
             } else {
                 // Log details of the failure
@@ -59,6 +59,14 @@
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
+- (NSMutableArray *)objects
+{
+    if (_objects == nil) {
+        _objects = [NSMutableArray array];
+    }
+    return _objects;
+}
+
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -68,14 +76,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_objects count];
+    return [self.objects count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    PFObject *deadline = _objects[indexPath.row];
+    PFObject *deadline = self.objects[indexPath.row];
     cell.textLabel.text = deadline[@"title"];
     NSString *dateString = deadline[@"scheduledDate"];
     NSDateFormatter *f = [[NSDateFormatter alloc] init];
@@ -98,7 +106,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
+        [self.objects removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -125,7 +133,7 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
+        NSDate *object = self.objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
 }
