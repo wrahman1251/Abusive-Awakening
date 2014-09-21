@@ -23,6 +23,7 @@
 		849DFCCB19CE090600B8C5C1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 849DFCC919CE090600B8C5C1 /* InfoPlist.strings */; };
 		849DFCCD19CE090600B8C5C1 /* FOOBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DFCCC19CE090600B8C5C1 /* FOOBTests.m */; };
 		849DFCD819CE174E00B8C5C1 /* FOOBAddDeadline.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DFCD719CE174E00B8C5C1 /* FOOBAddDeadline.m */; };
+		84AD13EF19CE6AA9000DA314 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84AD13EE19CE6AA9000DA314 /* background.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		849DFCCC19CE090600B8C5C1 /* FOOBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOOBTests.m; sourceTree = "<group>"; };
 		849DFCD619CE174E00B8C5C1 /* FOOBAddDeadline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOOBAddDeadline.h; sourceTree = "<group>"; };
 		849DFCD719CE174E00B8C5C1 /* FOOBAddDeadline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOOBAddDeadline.m; sourceTree = "<group>"; };
+		84AD13EE19CE6AA9000DA314 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = ../../../Downloads/background.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				849DFCAD19CE090500B8C5C1 /* FOOBAppDelegate.h */,
 				849DFCAE19CE090500B8C5C1 /* FOOBAppDelegate.m */,
 				849DFCB019CE090500B8C5C1 /* Main.storyboard */,
+				84AD13EE19CE6AA9000DA314 /* background.jpg */,
 				849DFCD619CE174E00B8C5C1 /* FOOBAddDeadline.h */,
 				849DFCD719CE174E00B8C5C1 /* FOOBAddDeadline.m */,
 				849DFCB319CE090500B8C5C1 /* FOOBMasterViewController.h */,
@@ -241,6 +244,7 @@
 			files = (
 				849DFCBA19CE090500B8C5C1 /* Images.xcassets in Resources */,
 				849DFCA919CE090500B8C5C1 /* InfoPlist.strings in Resources */,
+				84AD13EF19CE6AA9000DA314 /* background.jpg in Resources */,
 				849DFCB219CE090500B8C5C1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
