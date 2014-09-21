@@ -38,13 +38,13 @@
 - (IBAction)getFOOB:(id)sender {
     //send to server
     
-    PFObject *obj1 = [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:@"+12268084985"];
-    PFObject *obj2 = [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:@"+15195034679"];
-    PFObject *obj3 = [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:@"+16476067399"];
+    NSString *number = [@"+" stringByAppendingString:self.phoneNumber.text];
+    
+    PFObject *obj = [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:number];
     
     UINavigationController *nav = (UINavigationController *)self.presentingViewController;
     FOOBMasterViewController *vc = (FOOBMasterViewController *)[nav.viewControllers firstObject];
-    [[vc objects] addObjectsFromArray:@[obj1,obj2,obj3]];
+    [[vc objects] addObject:obj];
     [vc.tableView reloadData];
     
     /*
