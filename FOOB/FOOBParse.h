@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 @interface FOOBParse : NSObject
 
-+ (void)addDeadlineWithTitle:(NSString *)title date:(NSDate *)date phoneNumber:(NSString *)phoneNumber;
++ (PFObject *)addDeadlineWithTitle:(NSString *)title date:(NSDate *)date phoneNumber:(NSString *)phoneNumber;
 + (void)removeDeadlineWithObjectId:(NSString *)objectId;
 
 @end

@@ -7,11 +7,10 @@
 //
 
 #import "FOOBParse.h"
-#import <Parse/Parse.h>
 
 @implementation FOOBParse
 
-+ (void)addDeadlineWithTitle:(NSString *)title date:(NSDate *)date phoneNumber:(NSString *)phoneNumber
++ (PFObject *)addDeadlineWithTitle:(NSString *)title date:(NSDate *)date phoneNumber:(NSString *)phoneNumber
 {
     PFObject *testObject = [PFObject objectWithClassName:@"Deadline"];
     testObject[@"scheduledDate"] = [date description];
@@ -19,6 +18,7 @@
     testObject[@"phoneNumber"] = phoneNumber;
     testObject[@"username"] = [PFUser currentUser].username;
     [testObject saveEventually];
+    return testObject;
 }
 
 + (void)removeDeadlineWithObjectId:(NSString *)objectId

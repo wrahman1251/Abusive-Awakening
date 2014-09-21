@@ -32,6 +32,6 @@ typedef enum _RAGeolocatorState : int16_t {
 @property (nonatomic, readonly) RAGeolocatorState state;
 
 - (void)fetchMapItemsForSearchQuery:(NSString *)query;
-- (void)registerHomeAtLocation:(CLLocation *)location;
+- (void)registerGeofenceAtLocation:(CLLocation *)location;
 
 @end

@@ -35,9 +35,10 @@
     }];
 }
 
-- (void)registerHomeAtLocation:(CLLocation *)location
+- (void)registerGeofenceAtLocation:(CLLocation *)location
 {
-    CLRegion *region = [[CLCircularRegion alloc] initWithCenter:location.coordinate radius:20 identifier:@"my_home"];
+    NSUUID *uuid = [NSUUID UUID];
+    CLRegion *region = [[CLCircularRegion alloc] initWithCenter:location.coordinate radius:20 identifier:uuid.UUIDString];
     [self.locationManager startMonitoringForRegion:region];
 }
 

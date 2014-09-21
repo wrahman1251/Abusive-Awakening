@@ -10,16 +10,28 @@
 #import <Parse/PFUser.h>
 #import "FOOBParse.h"
 
-@interface FOOBAddDeadline () {
-    NSDateFormatter *dateFormatter;
-}
+@interface FOOBAddDeadline ()
+
+@property (nonatomic) CLLocation *location;
+@property (nonatomic) CLLocationManager *locationManager;
 
 @end
 
 @implementation FOOBAddDeadline
 
-- (IBAction)dateChanged:(id)sender {
-    self.dateLabel.text = [dateFormatter stringFromDate:self.deadlinePicker.date];
+- (IBAction)dateChanged:(id)sender
+{
+    NSDateFormatter *f = [[NSDateFormatter alloc] init];
+    [f setDateStyle:NSDateFormatterMediumStyle];
+    [f setTimeStyle:NSDateFormatterShortStyle];
+    
+    self.dateLabel.text = [f stringFromDate:self.deadlinePicker.date];
+}
+
+- (void)findMe:(id)sender
+{
+    self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager startUpdatingLocation];
 }
 
 - (IBAction)getFOOB:(id)sender {
@@ -27,6 +39,12 @@
     
     [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:@"+12268084985"];
     
+    /*
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *coords = @[@(self.location.coordinate.latitude), @(self.location.coordinate.longitude)];
+    [defaults setObject:coords forKey:object.objectId];
+    [defaults synchronize];
+    */
     /*
      NSDate *now = [NSDate date];
     [FOOBParse addDeadlineWithTitle:@"BBBBBB" date:[now dateByAddingTimeInterval:20] phoneNumber:@"+15195034679"];
@@ -39,11 +57,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    NSDateFormatter *f = [[NSDateFormatter alloc] init];
+    [f setDateStyle:NSDateFormatterMediumStyle];
+    [f setTimeStyle:NSDateFormatterShortStyle];
     
-    self.dateLabel.text = [dateFormatter stringFromDate:self.deadlinePicker.date];
+    self.dateLabel.text = [f stringFromDate:self.deadlinePicker.date];
     self.deadlineName.text = @"";
     self.clearsSelectionOnViewWillAppear = NO;
     
@@ -72,6 +90,12 @@
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
+#pragma mark - CLLocationManagerDelegate
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    self.location = [locations lastObject];
+    [manager stopUpdatingLocation];
+}
 
 @end

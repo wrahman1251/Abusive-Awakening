@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface FOOBAddDeadline : UITableViewController 
+@interface FOOBAddDeadline : UITableViewController<CLLocationManagerDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextView *deadlineName;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *done;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancel;
 @property (weak, nonatomic) IBOutlet UIDatePicker *deadlinePicker;
 
+- (IBAction)findMe:(id)sender;
 
 @end
