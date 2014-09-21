@@ -38,8 +38,6 @@
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)];
     
     [self.view addGestureRecognizer:tapGesture];
-    
-    
 }
 
 -(void)hideKeyBoard {
