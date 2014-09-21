@@ -7,6 +7,7 @@
 //
 
 #import "FOOBAddDeadline.h"
+#import <Parse/PFUser.h>
 
 @interface FOOBAddDeadline ()
 

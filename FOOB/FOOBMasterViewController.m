@@ -7,8 +7,8 @@
 //
 
 #import "FOOBMasterViewController.h"
-
 #import "FOOBDetailViewController.h"
+#import "FOOBParse.h"
 
 @interface FOOBMasterViewController () {
     NSMutableArray *_objects;
@@ -30,6 +30,12 @@
 
    /* UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;*/
+    
+    NSDate *now = [NSDate date];
+    [FOOBParse addDeadlineWithTitle:@"AAAAAA" date:[now dateByAddingTimeInterval:10] phoneNumber:@"+12268084985"];
+    [FOOBParse addDeadlineWithTitle:@"BBBBBB" date:[now dateByAddingTimeInterval:60] phoneNumber:@"+12268084985"];
+    [FOOBParse addDeadlineWithTitle:@"CCCCCC" date:[now dateByAddingTimeInterval:80] phoneNumber:@"+12268084985"];
+    [FOOBParse addDeadlineWithTitle:@"DDDDDD" date:[now dateByAddingTimeInterval:100] phoneNumber:@"+12268084985"];
 }
 
 - (void)didReceiveMemoryWarning

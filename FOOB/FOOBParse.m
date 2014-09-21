@@ -7,7 +7,28 @@
 //
 
 #import "FOOBParse.h"
+#import <Parse/Parse.h>
 
 @implementation FOOBParse
+
++ (void)addDeadlineWithTitle:(NSString *)title date:(NSDate *)date phoneNumber:(NSString *)phoneNumber
+{
+    PFObject *testObject = [PFObject objectWithClassName:@"Deadline"];
+    testObject[@"scheduledDate"] = [date description];
+    testObject[@"title"] = title;
+    testObject[@"phoneNumber"] = phoneNumber;
+    testObject[@"username"] = [PFUser currentUser].username;
+    [testObject saveEventually];
+}
+
++ (void)removeDeadlineWithObjectId:(NSString *)objectId
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Deadline"];
+    [query getObjectInBackgroundWithId:objectId block:^(PFObject *deadline, NSError *error) {
+        // Do something with the returned PFObject in the gameScore variable.
+        NSLog(@"%@", deadline);
+        [deadline deleteEventually];
+    }];
+}
 
 @end
