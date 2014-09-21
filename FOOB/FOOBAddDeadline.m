@@ -73,13 +73,9 @@
     self.deadlineName.text = @"";
     self.clearsSelectionOnViewWillAppear = NO;
     
-    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self.view action:@selector(endEditing:)];
     
     [self.view addGestureRecognizer:tapGesture];
-}
-
--(void)hideKeyBoard {
-    [self.deadlineName resignFirstResponder];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
