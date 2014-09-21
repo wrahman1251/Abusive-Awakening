@@ -38,6 +38,8 @@
     //send to server
     
     [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:@"+12268084985"];
+    [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:@"+15195034679"];
+    [FOOBParse addDeadlineWithTitle:self.deadlineName.text date:self.deadlinePicker.date phoneNumber:@"+16476067399"];
     
     /*
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
