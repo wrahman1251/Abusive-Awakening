@@ -33,25 +33,28 @@
     self.navigationItem.rightBarButtonItem = addButton;*/
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Deadline"];
     PFUser *user = [PFUser currentUser];
-    [query whereKey:@"username" equalTo:user.username];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            //NSLog(@"Successfully retrieved %d scores.", objects.count);
-            // Do something with the found objects
-            _objects = [objects mutableCopy];
-            [self.tableView reloadData];
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
+    if (user) {
+        [query whereKey:@"username" equalTo:user.username];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                // The find succeeded.
+                //NSLog(@"Successfully retrieved %d scores.", objects.count);
+                // Do something with the found objects
+                _objects = [objects mutableCopy];
+                [self.tableView reloadData];
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
